@@ -1,0 +1,1 @@
+java -jar target\challenge.jar SampleTxtFile_1000kb.txt
