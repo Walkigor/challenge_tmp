@@ -30,15 +30,13 @@ public class FileWorkerImpl implements FileWorker<Trie> {
                             Arrays.stream(line.split("\\s+|,\\s+|\\.\\s+|:|;"))
                     )
                     .parallel()
-                    //.map(item -> item.replaceAll("[^A-Za-z0-9 ]", ""))
-                    //.filter(it -> !it.isEmpty())
                     .map(String::trim)
                     .map(String::toLowerCase)
                     .forEach(word -> trie.insert(word, trie.getRoot()));
             
         } catch (IOException ex) {
             log.error("{}: {}", ex.getStackTrace()[0].getMethodName(), ex.getMessage());
-            ex.printStackTrace();
+            //ex.printStackTrace();
 	}
         return trie;
     }

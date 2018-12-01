@@ -47,16 +47,6 @@ public class AppTests {
     }
     
     @Test
-    public void isNotExistWithItsChildrenAfterDeletion() {
-        //act
-        trie.delete("mnops", trie.getRoot());
-        
-        //accert
-        assertThat(trie.find("mnops", trie.getRoot())).isFalse();
-        assertThat(trie.find("mnopst", trie.getRoot())).isFalse();
-    }
-    
-    @Test
     public void getAllGNodesList() {
         //act        
         ArrayList<GNode> listAll = trie.walkGraph();
