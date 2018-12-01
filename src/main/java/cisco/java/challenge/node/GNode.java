@@ -1,20 +1,38 @@
 package cisco.java.challenge.node;
 
-import java.util.Arrays;
+import java.util.SortedSet;
+import java.util.TreeSet;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 
-@Getter @Setter @EqualsAndHashCode
-public class GNode implements IGNode {
-    protected char name;
-    protected GNode[] children;
-    protected int isLeaf; //boolean isLeaf;
-        
-    public GNode(char name, boolean leaf) {
+@EqualsAndHashCode
+public class GNode implements IGNode, Comparable<GNode> {
+    @Getter @Setter protected char name;
+    @Setter protected SortedSet<GNode> children;
+    @Getter @Setter protected int word;
+    
+    public GNode(char name) {
         this.name = name;
-        this.isLeaf = leaf ? 1 : 0;
-        this.children = new GNode[26]; //ALPHABET 
-        Arrays.setAll(this.children, i -> null);
+    }
+    
+    public GNode(char name, boolean word) {
+        this.name = name;
+        this.word = word ? 1 : 0;
+        this.children = new TreeSet<>();
+    }
+
+    public SortedSet<GNode> getChildrenSet() {
+        return this.children;
+    }
+    
+    @Override
+    public GNode[] getChildren() {
+        return this.children.toArray(new GNode[0]);
+    }
+    
+    @Override
+    public int compareTo(GNode node) {
+        return this.name - node.getName();
     }
 }

@@ -1,14 +1,11 @@
 package cisco.java.challenge.cmd;
 
-import cisco.java.challenge.node.GNode;
 import cisco.java.challenge.node.ITrie;
 import cisco.java.challenge.node.Trie;
 import cisco.java.challenge.util.FileWorker;
 import cisco.java.challenge.util.FileWorkerImpl;
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
-import java.util.ArrayList;
-import java.util.Arrays;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
