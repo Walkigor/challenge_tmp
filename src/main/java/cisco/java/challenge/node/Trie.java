@@ -14,7 +14,7 @@ public class Trie implements ITrie, IGNodeSrv {
     private List<String> occurrences = new ArrayList<>();
     
     private GNode findChild(List<GNode> children, char name) {
-        int idx =  Collections.binarySearch(children, new GNode(name));
+        int idx = Collections.binarySearch(children, new GNode(name));
         return idx >=0
                 ? children.get(idx)
                 : null;
@@ -26,6 +26,7 @@ public class Trie implements ITrie, IGNodeSrv {
             if (data==null || data.length()==0)
                 return;
 
+            //hide to accept words with special characters, etc.
             if (!Character.isLetter(data.charAt(0)))
                 return;
 
@@ -42,8 +43,8 @@ public class Trie implements ITrie, IGNodeSrv {
                     insert(data.substring(1, data.length()), child);            
             }
         } catch (Exception ex) {
-            log.error("{}", ex);
-            //ex.printStackTrace();
+            //log.error("{}", ex);
+            ex.printStackTrace();
         }
     }
 
