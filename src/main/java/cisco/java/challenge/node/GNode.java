@@ -1,7 +1,7 @@
 package cisco.java.challenge.node;
 
 import java.util.SortedSet;
-import java.util.TreeSet;
+import java.util.concurrent.ConcurrentSkipListSet;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
@@ -19,7 +19,7 @@ public class GNode implements IGNode, Comparable<GNode> {
     public GNode(char name, boolean word) {
         this.name = name;
         this.word = word ? 1 : 0;
-        this.children = new TreeSet<>();
+        this.children = new ConcurrentSkipListSet<>(); //new TreeSet<>();
     }
 
     public SortedSet<GNode> getChildrenSet() {
