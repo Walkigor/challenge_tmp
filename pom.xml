@@ -3,10 +3,10 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>cisco.java.challenge</groupId> 
     <artifactId>Challenge</artifactId>   
-    <version>1.0.0</version>
+    <version>1.0.2</version>
     <packaging>jar</packaging>
     
-    <name>Challenge-1.0.1</name>
+    <name>Challenge-${project.version}</name>
     <description>fast text file scanner based on classic trie algorithm</description>
 
     <properties>
